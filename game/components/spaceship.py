@@ -31,13 +31,19 @@ class Spaceship:
         screen.blit(self.image, self.rect)
 
     def move_left(self, game_speed):
-        if self.rect.left > 0:
-            self.rect.x -= game_speed
-
+    #    if self.rect.left > 0:
+    #        self.rect.x -= game_speed
+ 
+        self.rect.x -= game_speed
+        if self.rect.left < 0:
+           self.rect.right = SCREEN_WIDTH 
     def move_right(self, game_speed):
-        if self.rect.right < SCREEN_WIDTH:
-            self.rect.x += game_speed
-
+     #   if self.rect.right < SCREEN_WIDTH:
+      #      self.rect.x += game_speed
+    
+        self.rect.x += game_speed
+        if self.rect.right > SCREEN_WIDTH:
+            self.rect.left = 0
     def move_up(self, game_speed):
         if self.rect.y > 250:
             self.rect.y -= game_speed
